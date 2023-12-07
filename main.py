@@ -28,7 +28,8 @@ fake_trades = [
 
 # эндпоинт
 @app.get("/trades")
-def get_trades(limit: int = 1, offset: int = 0):        # offset это сдвиг в пагинации
+def get_trades(limit: int = 1, offset: int = 0):
+    # offset это сдвиг в пагинации
     return fake_trades[offset:][:limit]
 
 fake_users2 = [
@@ -37,8 +38,9 @@ fake_users2 = [
     {"id": 3, "role": "trader", "name": "Matt"},
 ]
 
-@app.post("/users/{users_id}")
+@app.post("/users/{user_id}")
 def change_user_name(user_id: int, new_name: str):
     current_user = list(filter(lambda user: user.get("id") == user_id, fake_users2))[0]
+    print(current_user)
     current_user["name"] = new_name
     return {"status": 200, "data": current_user}
