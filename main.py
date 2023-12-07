@@ -30,3 +30,9 @@ fake_trades = [
 @app.get("/trades")
 def get_trades(limit: int = 1, offset: int = 0):        # offset это сдвиг в пагинации
     return fake_trades[offset:][:limit]
+
+fake_users2 = [
+    {"id": 1, "role": "admin", "name": "Bob"},
+    {"id": 2, "role": "investor", "name": "John"},
+    {"id": 3, "role": "trader", "name": "Matt"},
+]
