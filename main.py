@@ -14,4 +14,6 @@ fake_users = [
     {"id": 3, "role": "trader", "name": "Matt"},
 ]
 
-@app.get("/users/")
+@app.get("/users/{user_id}")
+def get_user(user_id):
+    return [user for user in fake_users if user.get("id") == user_id]
