@@ -6,5 +6,5 @@ app = FastAPI()
 
 
 @app.get("/")
-def hello():
+def get_hello():
     return "Hello world"
