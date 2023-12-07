@@ -28,5 +28,5 @@ fake_trades = [
 
 # эндпоинт
 @app.get("/trades")
-def get_trades(limit: int, offset: int):        # offset это сдвиг в пагинации
+def get_trades(limit: int = 1, offset: int = 0):        # offset это сдвиг в пагинации
     return fake_trades[offset:][:limit]
