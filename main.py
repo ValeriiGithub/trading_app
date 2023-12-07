@@ -15,5 +15,5 @@ fake_users = [
 ]
 
 @app.get("/users/{user_id}")
-def get_user(user_id):
+def get_user(user_id: int):
     return [user for user in fake_users if user.get("id") == user_id]
