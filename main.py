@@ -8,4 +8,10 @@ app = FastAPI(
     title="Trading App"
 )
 
+fake_users = [
+    {"id": 1, "role": "admin", "name": "Bob"},
+    {"id": 2, "role": "investor", "name": "John"},
+    {"id": 3, "role": "trader", "name": "Matt"},
+]
 
+@app.get("/users/")
