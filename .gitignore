@@ -187,3 +187,7 @@ fabric.properties
 # Files
 test_data.sql
 README.txt
+dop_iformation/
+
+# Игнорируем все файлы .lnk
+*.lnk
