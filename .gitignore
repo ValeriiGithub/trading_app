@@ -79,6 +79,7 @@ celerybeat-schedule
 
 # dotenv
 app/.env
+.env
 
 # virtualenv
 venv/
@@ -189,5 +190,5 @@ test_data.sql
 README.txt
 dop_iformation/
 
-# Игнорируем все файлы .lnk
+# пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ .lnk
 *.lnk
