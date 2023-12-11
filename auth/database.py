@@ -23,7 +23,6 @@ class User(SQLAlchemyBaseUserTable[int], Base):
     role_id = Column(Integer, ForeignKey(role.c.id)),
 
     # Скопировано автором из SQLAlchemyBaseUserTable. Возможно у него старая версия FastAPI
-    email: str = Column( String(Length=328), unique=True, index=True, nullable=False),
     hashed_password: str = Column(String(Length=1024), nullable=False),
     is_active: bool = Column(Boolean, default=True, nullable=False),
     is_superuser: bool = Column(Boolean, default=False, nullable=False),
