@@ -1,6 +1,7 @@
 from datetime import datetime
 
-from sqlalchemy import MetaData, Table, Column, Integer, String, TIMESTAMP, ForeignKey, JSON
+
+from sqlalchemy import MetaData, Table, Column, Integer, String, TIMESTAMP, ForeignKey, JSON, Boolean
 
 metadata = MetaData()
 
@@ -21,4 +22,7 @@ user = Table(
     Column("hashed_password", String, nullable=False),
     Column("registered_at", TIMESTAMP, default=datetime.utcnow),
     Column("role_id", Integer, ForeignKey(role.c.id)),
+    Column("is_active", Boolean, default=True, nullable=False),
+    Column("is_superuser", Boolean, default=False, nullable=False),
+    Column("is_verified", Boolean, default=False, nullable=False),
 )
