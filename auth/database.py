@@ -1,7 +1,9 @@
+from datetime import datetime
 from typing import AsyncGenerator
 
 from fastapi import Depends
 from fastapi_users.db import SQLAlchemyBaseUserTable, SQLAlchemyUserDatabase
+from sqlalchemy import Column, Integer, String, TIMESTAMP, ForeignKey, Boolean
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.ext.declarative import DeclarativeMeta, declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -13,7 +15,18 @@ Base: DeclarativeMeta = declarative_base()
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
-    pass
+    id = Column(Integer, primary_key=True),
+    email = Column(String, nullable=False),
+    username = Column(String, nullable=False),
+    registered_at = Column(TIMESTAMP, default=datetime.utcnow),
+    role_id = Column(Integer, ForeignKey(roles.c.id)),
+
+    # Скопировано автором из SQLAlchemyBaseUserTable. Возможно у него старая версия FastAPI
+    email: str = Column( String(Length=328), unique=True, index=True, nullable=False),
+    hashed_password: str = Column(String(Length=1024), nullable=False),
+    is_active: bool = Column(Boolean, default=True, nullable=False),
+    is_superuser: bool = Column(Boolean, default=False, nullable=False),
+    is_verified: bool = Column(Boolean, default=False, nullable=False)
 
 
 engine = create_async_engine(DATABASE_URL)
