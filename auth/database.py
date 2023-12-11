@@ -16,16 +16,16 @@ Base: DeclarativeMeta = declarative_base()
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
-    id = Column(Integer, primary_key=True),
-    email = Column(String, nullable=False),
-    username = Column(String, nullable=False),
-    registered_at = Column(TIMESTAMP, default=datetime.utcnow),
-    role_id = Column(Integer, ForeignKey(role.c.id)),
+    id = Column(Integer, primary_key=True)
+    email = Column(String, nullable=False)
+    username = Column(String, nullable=False)
+    registered_at = Column(TIMESTAMP, default=datetime.utcnow)
+    role_id = Column(Integer, ForeignKey(role.c.id))
 
     # Скопировано автором из SQLAlchemyBaseUserTable. Возможно у него старая версия FastAPI
-    hashed_password: str = Column(String(Length=1024), nullable=False),
-    is_active: bool = Column(Boolean, default=True, nullable=False),
-    is_superuser: bool = Column(Boolean, default=False, nullable=False),
+    hashed_password: str = Column(String(Length=1024), nullable=False)
+    is_active: bool = Column(Boolean, default=True, nullable=False)
+    is_superuser: bool = Column(Boolean, default=False, nullable=False)
     is_verified: bool = Column(Boolean, default=False, nullable=False)
 
 
