@@ -6,7 +6,7 @@ from fastapi import FastAPI, Depends
 from fastapi_users import FastAPIUsers
 
 from src.auth.auth import auth_backend
-from src.auth.database import User
+from src.database import User
 from src.auth.manager import get_user_manager
 from src.auth.schemas import UserRead, UserCreate
 
